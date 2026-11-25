@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel administrativo de BookHub: indicadores, inventario y gestión del catálogo de libros.">
+  <title>Panel administrativo | BookHub</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <aside class="sidebar" id="sidebar" aria-label="Menú del panel">
+    <a class="logo" href="#resumen" aria-label="BookHub, ir al resumen">
+      <span aria-hidden="true">📖</span>
+      <span>Book<span class="logo__acento">Hub</span></span>
+    </a>
+    <p class="sidebar__subtitulo">Panel administrativo</p>
+
+    <nav aria-label="Secciones del panel">
+      <ul class="sidebar__lista">
+        <li><a class="sidebar__enlace" href="#resumen" aria-current="true"><span aria-hidden="true">🏠</span> Resumen</a></li>
+        <li><a class="sidebar__enlace" href="#catalogo"><span aria-hidden="true">📚</span> Catálogo</a></li>
+        <li><a class="sidebar__enlace" href="#estadisticas"><span aria-hidden="true">📊</span> Estadísticas</a></li>
+        <li><a class="sidebar__enlace" href="#calidad"><span aria-hidden="true">✅</span> Calidad de datos</a></li>
+        <li><a class="sidebar__enlace" href="../landing/index.html"><span aria-hidden="true">🛍️</span> Ver tienda</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar__pie">
+      <button class="boton boton--fantasma boton--bloque" type="button" id="boton-restablecer">↺ Restablecer datos</button>
+      <p class="sidebar__nota">Vuelve a cargar <code>libros.json</code> y borra los cambios guardados.</p>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <header class="barra-superior">
+      <button class="boton-menu" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Abrir menú">
+        <span data-icono aria-hidden="true">☰</span>
+      </button>
+      <p class="barra-superior__titulo">Gestión del catálogo</p>
+      <div class="usuario">
+        <span class="usuario__avatar" aria-hidden="true">AD</span>
+        <span class="usuario__nombre">Administrador</span>
+      </div>
+    </header>
+
+    <main class="contenido" id="contenido-principal">
+      <section class="bloque" id="resumen" aria-labelledby="titulo-resumen">
+        <div class="bienvenida">
+          <div>
+            <h1 class="bienvenida__titulo" id="titulo-resumen">Hola, administrador 👋</h1>
+            <p class="bienvenida__texto">Este es el estado del catálogo y del inventario de BookHub.</p>
+          </div>
+          <div class="acciones-rapidas" aria-label="Acciones rápidas">
+            <button class="boton boton--primario" type="button" data-accion="agregar">+ Agregar libro</button>
+            <button class="boton boton--secundario" type="button" id="boton-ver-bajo">Ver inventario bajo</button>
+          </div>
+        </div>
+
+        <ul class="grilla-kpi">
+          <li class="kpi">
+            <span class="kpi__icono kpi__icono--verde" aria-hidden="true">📚</span>
+            <div>
+              <h2 class="kpi__titulo">Libros registrados</h2>
+              <p class="kpi__valor" id="kpi-registrados">0</p>
+              <p class="kpi__descripcion">Títulos activos en el catálogo.</p>
+            </div>
+          </li>
+          <li class="kpi">
+            <span class="kpi__icono kpi__icono--amarillo" aria-hidden="true">⚠️</span>
+            <div>
+              <h2 class="kpi__titulo">Inventario bajo</h2>
+              <p class="kpi__valor" id="kpi-bajo">0</p>
+              <p class="kpi__descripcion">Títulos con existencia igual o inferior al stock mínimo.</p>
+            </div>
+          </li>
+          <li class="kpi">
+            <span class="kpi__icono kpi__icono--terracota" aria-hidden="true">💰</span>
+            <div>
+              <h2 class="kpi__titulo">Valor del inventario</h2>
+              <p class="kpi__valor" id="kpi-valor">$0</p>
+              <p class="kpi__descripcion">Suma de precio × cantidad disponible (COP).</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="bloque tarjeta" id="catalogo" aria-labelledby="titulo-catalogo">
+        <div class="bloque__encabezado">
+          <div>
+            <h2 class="bloque__titulo" id="titulo-catalogo">Catálogo de libros</h2>
+            <p class="bloque__descripcion" id="contador-resultados" aria-live="polite">Cargando libros…</p>
+          </div>
+          <div class="bloque__acciones">
+            <div class="selector-vista" role="group" aria-label="Forma de ver el catálogo">
+              <button class="selector-vista__boton" type="button" data-vista="tarjetas" aria-pressed="true">▦ Tarjetas</button>
+              <button class="selector-vista__boton" type="button" data-vista="tabla" aria-pressed="false">☰ Tabla</button>
+            </div>
+            <button class="boton boton--primario" type="button" data-accion="agregar">+ Agregar libro</button>
+          </div>
+        </div>
+
+        <form class="filtros" id="filtros" role="search" aria-label="Buscar y filtrar libros">
+          <div class="campo campo--busqueda">
+            <label class="campo__etiqueta" for="filtro-busqueda">Buscar</label>
+            <input class="campo__entrada" type="search" id="filtro-busqueda" placeholder="Título, autor, editorial o ISBN" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="filtro-categoria">Categoría</label>
+            <select class="campo__entrada" id="filtro-categoria">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="filtro-editorial">Editorial</label>
+            <select class="campo__entrada" id="filtro-editorial">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="filtro-estado">Estado</label>
+            <select class="campo__entrada" id="filtro-estado">
+              <option value="">Todos</option>
+              <option value="Disponible">Disponible</option>
+              <option value="Stock bajo">Stock bajo</option>
+              <option value="Agotado">Agotado</option>
+            </select>
+          </div>
+          <button class="boton boton--secundario filtros__limpiar" type="reset">Limpiar filtros</button>
+        </form>
+
+        <div class="mensaje-estado" id="mensaje-estado" hidden></div>
+
+        <ul class="grilla-libros" id="lista-libros" aria-label="Libros del catálogo"></ul>
+
+        <div class="tabla-contenedor" id="vista-tabla" hidden tabindex="0" role="region" aria-label="Tabla de libros (desplazable)">
+          <table class="tabla">
+            <caption class="visualmente-oculto">Inventario de libros de BookHub</caption>
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Libro</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Precio COP</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Estado</th>
+                <th scope="col"><span class="visualmente-oculto">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-tabla"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="bloque tarjeta" id="estadisticas" aria-labelledby="titulo-estadisticas">
+        <div class="bloque__encabezado">
+          <div>
+            <h2 class="bloque__titulo" id="titulo-estadisticas">Libros por categoría</h2>
+            <p class="bloque__descripcion">Cantidad de títulos activos en cada categoría. Se actualiza con cada cambio.</p>
+          </div>
+        </div>
+        <div class="grafico">
+          <canvas id="grafico-categorias" role="img" aria-label="Gráfico de barras con la cantidad de libros por categoría"></canvas>
+        </div>
+        <p class="mensaje-estado" id="grafico-error" hidden>No se pudo cargar Chart.js. Revisa tu conexión a internet para ver el gráfico.</p>
+      </section>
+
+      <section class="bloque tarjeta" id="calidad" aria-labelledby="titulo-calidad">
+        <div class="bloque__encabezado">
+          <div>
+            <h2 class="bloque__titulo" id="titulo-calidad">Calidad de datos</h2>
+            <p class="bloque__descripcion">Resultado de <code>validarLibros()</code> sobre los libros actuales.</p>
+          </div>
+        </div>
+        <div id="reporte-validacion" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-fondo" id="modal-libro" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+      <header class="modal__encabezado">
+        <h2 class="modal__titulo" id="titulo-modal">Agregar libro</h2>
+        <button class="boton-icono" type="button" data-cerrar-modal aria-label="Cerrar formulario">×</button>
+      </header>
+
+      <form class="formulario-libro" id="formulario-libro" novalidate>
+        <p class="formulario-libro__nota">Todos los campos son obligatorios.</p>
+        <div class="formulario-libro__grilla">
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-codigo">Código</label>
+            <input class="campo__entrada" id="campo-codigo" name="codigo" readonly aria-describedby="ayuda-codigo">
+            <p class="campo__ayuda" id="ayuda-codigo">Se asigna automáticamente.</p>
+          </div>
+          <div class="campo campo--ancho">
+            <label class="campo__etiqueta" for="campo-titulo">Título</label>
+            <input class="campo__entrada" id="campo-titulo" name="titulo" maxlength="120">
+            <p class="campo__error" data-error="titulo"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-autor">Autor</label>
+            <input class="campo__entrada" id="campo-autor" name="autor" maxlength="80">
+            <p class="campo__error" data-error="autor"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-editorial">Editorial</label>
+            <input class="campo__entrada" id="campo-editorial" name="editorial" maxlength="80" list="lista-editoriales">
+            <datalist id="lista-editoriales"></datalist>
+            <p class="campo__error" data-error="editorial"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-categoria">Categoría</label>
+            <select class="campo__entrada" id="campo-categoria" name="categoria">
+              <option value="">Selecciona una categoría</option>
+            </select>
+            <p class="campo__error" data-error="categoria"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-isbn">ISBN-13</label>
+            <input class="campo__entrada" id="campo-isbn" name="isbn" inputmode="numeric" maxlength="13" placeholder="13 dígitos">
+            <p class="campo__error" data-error="isbn"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-precio">Precio (COP)</label>
+            <input class="campo__entrada" id="campo-precio" name="precio" type="number" min="1" step="1">
+            <p class="campo__error" data-error="precio"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-anio">Año de publicación</label>
+            <input class="campo__entrada" id="campo-anio" name="anioPublicacion" type="number" min="1450" max="2026" step="1">
+            <p class="campo__error" data-error="anioPublicacion"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-stock">Stock</label>
+            <input class="campo__entrada" id="campo-stock" name="stock" type="number" min="0" step="1">
+            <p class="campo__error" data-error="stock"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-stock-minimo">Stock mínimo</label>
+            <input class="campo__entrada" id="campo-stock-minimo" name="stockMinimo" type="number" min="0" step="1">
+            <p class="campo__error" data-error="stockMinimo"></p>
+          </div>
+          <div class="campo campo--ancho campo--casilla">
+            <input id="campo-activo" name="activo" type="checkbox" checked>
+            <label for="campo-activo">Libro activo (visible en el catálogo de la tienda)</label>
+          </div>
+        </div>
+
+        <footer class="modal__pie">
+          <button class="boton boton--secundario" type="button" data-cerrar-modal>Cancelar</button>
+          <button class="boton boton--primario" type="submit">Guardar libro</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="../compartido/menu.js"></script>
+  <script src="validacion.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
