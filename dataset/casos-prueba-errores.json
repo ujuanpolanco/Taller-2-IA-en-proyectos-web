@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "codigo": "LIB001",
+    "titulo": "Registro correcto de referencia",
+    "categoria": "Literatura",
+    "precio": 50000,
+    "stock": 10,
+    "stockMinimo": 3,
+    "autor": "Autor de prueba",
+    "editorial": "Planeta",
+    "isbn": "9789589900062",
+    "anioPublicacion": 2020,
+    "activo": true
+  },
+  {
+    "id": 1,
+    "codigo": "LIB01",
+    "titulo": "IA",
+    "categoria": "Ciencia",
+    "precio": "45000",
+    "stock": -2,
+    "stockMinimo": 2.5,
+    "autor": "",
+    "editorial": "Norma",
+    "isbn": "978958990006",
+    "anioPublicacion": 2027,
+    "activo": "true"
+  },
+  {
+    "id": 0,
+    "codigo": "LIB001",
+    "titulo": "ISBN con digito de control incorrecto",
+    "categoria": "Historia",
+    "precio": 0,
+    "stock": 5,
+    "stockMinimo": 1,
+    "autor": "Autor de prueba",
+    "editorial": "Anagrama",
+    "isbn": "9789589900063",
+    "anioPublicacion": 1449,
+    "activo": true,
+    "estado": "Disponible"
+  },
+  {
+    "id": 4,
+    "codigo": "LIB004",
+    "titulo": "Registro sin editorial y con ISBN repetido",
+    "categoria": "Educación",
+    "precio": 30000,
+    "stock": 3,
+    "stockMinimo": 1,
+    "autor": "Autor de prueba",
+    "isbn": "9789589900062",
+    "anioPublicacion": 2010,
+    "activo": false
+  }
+]
