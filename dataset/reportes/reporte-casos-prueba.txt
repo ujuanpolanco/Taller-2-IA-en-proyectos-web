@@ -1,0 +1,21 @@
+Archivo: dataset/casos-prueba-errores.json
+Registros revisados: 4 | Errores encontrados: 19
+01. [índice 1 | id 1] codigo: Debe seguir el patrón LIB + tres dígitos (valor recibido: "LIB01").
+02. [índice 1 | id 1] titulo: Debe ser un texto de 3 a 120 caracteres (valor recibido: "IA").
+03. [índice 1 | id 1] categoria: No es una categoría válida (valor recibido: "Ciencia").
+04. [índice 1 | id 1] precio: Debe ser un entero positivo en COP (valor recibido: "45000").
+05. [índice 1 | id 1] stock: Debe ser un entero mayor o igual a 0 (valor recibido: -2).
+06. [índice 1 | id 1] stockMinimo: Debe ser un entero mayor o igual a 0 (valor recibido: 2.5).
+07. [índice 1 | id 1] autor: Campo obligatorio: no puede estar vacío.
+08. [índice 1 | id 1] isbn: ISBN-13 inválido: debe tener 13 dígitos y un dígito de control correcto (valor recibido: "978958990006").
+09. [índice 1 | id 1] anioPublicacion: Debe ser un entero entre 1450 y 2026 (valor recibido: 2027).
+10. [índice 1 | id 1] activo: Debe ser booleano (true o false), no texto ni número (valor recibido: "true").
+11. [índice 1 | id 1] id: Valor duplicado 1: ya lo usa el registro en el índice 0.
+12. [índice 2 | id 0] estado: Campo no permitido por la estructura del dataset.
+13. [índice 2 | id 0] id: Debe ser un entero mayor que 0 (valor recibido: 0).
+14. [índice 2 | id 0] precio: Debe ser un entero positivo en COP (valor recibido: 0).
+15. [índice 2 | id 0] isbn: ISBN-13 inválido: debe tener 13 dígitos y un dígito de control correcto (valor recibido: "9789589900063").
+16. [índice 2 | id 0] anioPublicacion: Debe ser un entero entre 1450 y 2026 (valor recibido: 1449).
+17. [índice 2 | id 0] codigo: Valor duplicado "LIB001": ya lo usa el registro en el índice 0.
+18. [índice 3 | id 4] editorial: El campo obligatorio no existe.
+19. [índice 3 | id 4] isbn: Valor duplicado "9789589900062": ya lo usa el registro en el índice 0.

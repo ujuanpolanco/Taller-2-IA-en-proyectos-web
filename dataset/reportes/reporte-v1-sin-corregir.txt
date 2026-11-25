@@ -1,0 +1,3 @@
+Archivo: dataset/libros-v1-sin-corregir.json
+Registros revisados: 35 | Errores encontrados: 0
+El dataset cumple todas las reglas de negocio.
