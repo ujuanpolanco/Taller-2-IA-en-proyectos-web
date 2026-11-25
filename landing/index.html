@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BookHub, librería digital colombiana: explora libros impresos de literatura, ciencia, educación, historia, infantil y desarrollo personal.">
+  <title>BookHub | Librería digital colombiana</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <div class="contenedor encabezado__barra">
+      <a class="logo" href="#inicio" aria-label="BookHub, ir al inicio">
+        <span class="logo__icono" aria-hidden="true">📖</span>
+        <span class="logo__texto">Book<span class="logo__acento">Hub</span></span>
+      </a>
+
+      <button class="boton-menu" type="button" aria-expanded="false" aria-controls="navegacion-principal" aria-label="Abrir menú">
+        <span data-icono aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="navegacion" id="navegacion-principal" aria-label="Navegación principal">
+        <ul class="navegacion__lista">
+          <li><a class="navegacion__enlace" href="#categorias">Categorías</a></li>
+          <li><a class="navegacion__enlace" href="#destacados">Destacados</a></li>
+          <li><a class="navegacion__enlace" href="#beneficios">Beneficios</a></li>
+          <li><a class="navegacion__enlace" href="#resenas">Reseñas</a></li>
+          <li><a class="navegacion__enlace" href="#suscripcion">Suscripción</a></li>
+        </ul>
+        <a class="boton boton--primario navegacion__accion" href="#destacados">Explorar catálogo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <div class="contenedor hero__contenido">
+        <div class="hero__texto">
+          <p class="etiqueta">Librería digital colombiana</p>
+          <h1 class="hero__titulo" id="titulo-hero">Encuentra el libro que estás buscando y descubre el que todavía no conoces</h1>
+          <p class="hero__descripcion">
+            Un catálogo organizado de libros impresos para estudiantes, docentes, profesionales y lectores curiosos.
+            Envíos a todo Colombia y recomendaciones hechas por lectores.
+          </p>
+          <div class="hero__acciones">
+            <a class="boton boton--primario" href="#destacados">Explorar catálogo</a>
+            <a class="boton boton--secundario" href="#categorias">Ver categorías</a>
+          </div>
+          <ul class="hero__datos" aria-label="BookHub en cifras">
+            <li><strong>35</strong> títulos en catálogo</li>
+            <li><strong>6</strong> categorías</li>
+            <li><strong>32</strong> departamentos con envío</li>
+          </ul>
+        </div>
+        <figure class="hero__imagen">
+          <img src="https://placehold.co/560x460/1F4D3F/FBF7F0?text=Estanter%C3%ADa+BookHub&font=playfair-display" width="560" height="460" alt="Estantería de madera con libros de distintos colores ordenados por categoría">
+        </figure>
+      </div>
+    </section>
+
+    <section class="seccion" id="categorias" aria-labelledby="titulo-categorias">
+      <div class="contenedor">
+        <header class="seccion__encabezado">
+          <p class="etiqueta">Categorías</p>
+          <h2 class="seccion__titulo" id="titulo-categorias">Explora por área de interés</h2>
+          <p class="seccion__descripcion">Seis colecciones pensadas para cada etapa de la vida lectora.</p>
+        </header>
+
+        <ul class="grilla-categorias">
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">✒️</span>
+            <h3 class="categoria__titulo">Literatura</h3>
+            <p class="categoria__texto">Novela, cuento y poesía de autores colombianos y del mundo.</p>
+          </li>
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">🔬</span>
+            <h3 class="categoria__titulo">Ciencia y tecnología</h3>
+            <p class="categoria__texto">Programación, datos, divulgación científica e innovación.</p>
+          </li>
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">🎓</span>
+            <h3 class="categoria__titulo">Educación</h3>
+            <p class="categoria__texto">Pedagogía, didáctica y material de apoyo para el aula.</p>
+          </li>
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">🏛️</span>
+            <h3 class="categoria__titulo">Historia</h3>
+            <p class="categoria__texto">Relatos y ensayos para entender el pasado de Colombia y el mundo.</p>
+          </li>
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">🧸</span>
+            <h3 class="categoria__titulo">Infantil y juvenil</h3>
+            <p class="categoria__texto">Aventuras e historias ilustradas para nuevos lectores.</p>
+          </li>
+          <li class="categoria">
+            <span class="categoria__icono" aria-hidden="true">🌱</span>
+            <h3 class="categoria__titulo">Desarrollo personal</h3>
+            <p class="categoria__texto">Hábitos, finanzas, liderazgo y bienestar.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion seccion--alterna" id="destacados" aria-labelledby="titulo-destacados">
+      <div class="contenedor">
+        <header class="seccion__encabezado">
+          <p class="etiqueta">Catálogo</p>
+          <h2 class="seccion__titulo" id="titulo-destacados">Libros destacados</h2>
+          <p class="seccion__descripcion">Los títulos que más recomiendan nuestros lectores este mes.</p>
+        </header>
+
+        <ul class="grilla-libros">
+          <li>
+            <article class="libro">
+              <img class="libro__portada" src="https://placehold.co/300x420/7A2E1F/FBF7F0?text=Cien+a%C3%B1os%0Ade+soledad&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Cien años de soledad" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Literatura</p>
+                <h3 class="libro__titulo">Cien años de soledad</h3>
+                <p class="libro__autor">Gabriel García Márquez</p>
+                <p class="libro__precio">$55.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <img class="libro__portada" src="https://placehold.co/300x420/1F4D3F/FBF7F0?text=H%C3%A1bitos%0Aat%C3%B3micos&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Hábitos atómicos" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Desarrollo personal</p>
+                <h3 class="libro__titulo">Hábitos atómicos</h3>
+                <p class="libro__autor">James Clear</p>
+                <p class="libro__precio">$75.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <img class="libro__portada" src="https://placehold.co/300x420/2B4C7E/FBF7F0?text=Clean%0ACode&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Clean Code" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Ciencia y tecnología</p>
+                <h3 class="libro__titulo">Clean Code</h3>
+                <p class="libro__autor">Robert C. Martin</p>
+                <p class="libro__precio">$120.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <img class="libro__portada" src="https://placehold.co/300x420/B8860B/1E1B18?text=El%0Aprincipito&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de El principito" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Infantil y juvenil</p>
+                <h3 class="libro__titulo">El principito</h3>
+                <p class="libro__autor">Antoine de Saint-Exupéry</p>
+                <p class="libro__precio">$32.000</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <h3 class="subtitulo" id="novedades">Novedades</h3>
+        <ul class="grilla-libros">
+          <li>
+            <article class="libro">
+              <span class="libro__insignia">Nuevo</span>
+              <img class="libro__portada" src="https://placehold.co/300x420/3D5A80/FBF7F0?text=Inteligencia%0Aartificial%0Apara+todos&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Inteligencia artificial para todos" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Ciencia y tecnología</p>
+                <h3 class="libro__titulo">Inteligencia artificial para todos</h3>
+                <p class="libro__autor">Daniela Herrera Vélez</p>
+                <p class="libro__precio">$87.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <span class="libro__insignia">Nuevo</span>
+              <img class="libro__portada" src="https://placehold.co/300x420/C2551F/FBF7F0?text=El+misterio%0Adel+faro+de%0ACartagena&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de El misterio del faro de Cartagena" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Infantil y juvenil</p>
+                <h3 class="libro__titulo">El misterio del faro de Cartagena</h3>
+                <p class="libro__autor">Diego Alejandro Castro</p>
+                <p class="libro__precio">$44.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <span class="libro__insignia">Nuevo</span>
+              <img class="libro__portada" src="https://placehold.co/300x420/5B3A29/FBF7F0?text=Finanzas%0Apersonales%0Asin+estr%C3%A9s&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Finanzas personales sin estrés" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Desarrollo personal</p>
+                <h3 class="libro__titulo">Finanzas personales sin estrés</h3>
+                <p class="libro__autor">Jorge Iván Londoño</p>
+                <p class="libro__precio">$68.000</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="libro">
+              <span class="libro__insignia">Nuevo</span>
+              <img class="libro__portada" src="https://placehold.co/300x420/2F5D50/FBF7F0?text=Introducci%C3%B3n%0Apr%C3%A1ctica+a%0AJavaScript&font=playfair-display" width="300" height="420" alt="Portada de ejemplo de Introducción práctica a JavaScript" loading="lazy">
+              <div class="libro__info">
+                <p class="libro__categoria">Ciencia y tecnología</p>
+                <h3 class="libro__titulo">Introducción práctica a JavaScript</h3>
+                <p class="libro__autor">Laura Melissa Quintero</p>
+                <p class="libro__precio">$115.000</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion" id="beneficios" aria-labelledby="titulo-beneficios">
+      <div class="contenedor">
+        <header class="seccion__encabezado">
+          <p class="etiqueta">Beneficios</p>
+          <h2 class="seccion__titulo" id="titulo-beneficios">Tu próxima lectura comienza aquí</h2>
+          <p class="seccion__descripcion">Comprar libros en línea debe ser tan agradable como recorrer una librería de barrio.</p>
+        </header>
+
+        <ul class="grilla-beneficios">
+          <li class="beneficio">
+            <span class="beneficio__icono" aria-hidden="true">🚚</span>
+            <h3 class="beneficio__titulo">Envíos a todo Colombia</h3>
+            <p>Entrega en 24 a 72 horas en ciudades principales y seguimiento de tu pedido.</p>
+          </li>
+          <li class="beneficio">
+            <span class="beneficio__icono" aria-hidden="true">🔎</span>
+            <h3 class="beneficio__titulo">Catálogo organizado</h3>
+            <p>Busca por título, autor, editorial o ISBN y filtra por categoría en segundos.</p>
+          </li>
+          <li class="beneficio">
+            <span class="beneficio__icono" aria-hidden="true">🔒</span>
+            <h3 class="beneficio__titulo">Pagos seguros</h3>
+            <p>Paga con tarjeta, PSE o contra entrega con total confianza.</p>
+          </li>
+          <li class="beneficio">
+            <span class="beneficio__icono" aria-hidden="true">💬</span>
+            <h3 class="beneficio__titulo">Recomendaciones reales</h3>
+            <p>Reseñas de lectores y listas temáticas preparadas por nuestro equipo.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion seccion--alterna" id="resenas" aria-labelledby="titulo-resenas">
+      <div class="contenedor">
+        <header class="seccion__encabezado">
+          <p class="etiqueta">Comunidad lectora</p>
+          <h2 class="seccion__titulo" id="titulo-resenas">Lo que dicen nuestros lectores</h2>
+          <p class="seccion__descripcion">Testimonios de ejemplo para el prototipo (datos ficticios).</p>
+        </header>
+
+        <ul class="grilla-resenas">
+          <li>
+            <figure class="resena">
+              <blockquote class="resena__texto">
+                <p>“Encontré los libros de mi clase de pedagogía en un solo lugar y llegaron en dos días.”</p>
+              </blockquote>
+              <figcaption class="resena__autor">
+                <img src="https://placehold.co/96x96/1F4D3F/FBF7F0?text=LC" width="48" height="48" alt="" loading="lazy">
+                <span><strong>Laura C.</strong> Docente, Bucaramanga</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="resena">
+              <blockquote class="resena__texto">
+                <p>“Las recomendaciones por categoría me ayudaron a elegir mi primer libro de programación.”</p>
+              </blockquote>
+              <figcaption class="resena__autor">
+                <img src="https://placehold.co/96x96/C2551F/FBF7F0?text=AM" width="48" height="48" alt="" loading="lazy">
+                <span><strong>Andrés M.</strong> Estudiante, Medellín</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="resena">
+              <blockquote class="resena__texto">
+                <p>“Mis hijos esperan cada mes las novedades infantiles. El catálogo es muy fácil de usar.”</p>
+              </blockquote>
+              <figcaption class="resena__autor">
+                <img src="https://placehold.co/96x96/2B4C7E/FBF7F0?text=SP" width="48" height="48" alt="" loading="lazy">
+                <span><strong>Sandra P.</strong> Lectora, Bogotá</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion suscripcion" id="suscripcion" aria-labelledby="titulo-suscripcion">
+      <div class="contenedor suscripcion__contenido">
+        <div class="suscripcion__texto">
+          <p class="etiqueta etiqueta--clara">Boletín</p>
+          <h2 class="seccion__titulo" id="titulo-suscripcion">Recibe novedades y recomendaciones</h2>
+          <p>Un correo al mes con lanzamientos, listas de lectura y descuentos para suscriptores.</p>
+        </div>
+
+        <form class="formulario" id="formulario-suscripcion" novalidate>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-nombre">Nombre</label>
+            <input class="campo__entrada" type="text" id="campo-nombre" name="nombre" autocomplete="name" required minlength="3" aria-describedby="error-nombre">
+            <p class="campo__error" id="error-nombre" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label class="campo__etiqueta" for="campo-correo">Correo electrónico</label>
+            <input class="campo__entrada" type="email" id="campo-correo" name="correo" autocomplete="email" required aria-describedby="error-correo">
+            <p class="campo__error" id="error-correo" aria-live="polite"></p>
+          </div>
+          <button class="boton boton--acento" type="submit">Suscribirme al boletín</button>
+          <p class="formulario__mensaje" id="mensaje-suscripcion" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__contenido">
+      <div class="pie__marca">
+        <p class="logo logo--claro"><span aria-hidden="true">📖</span> Book<span class="logo__acento">Hub</span></p>
+        <p>Librería digital colombiana de libros impresos.</p>
+      </div>
+
+      <nav class="pie__enlaces" aria-label="Enlaces del sitio">
+        <h2 class="pie__titulo">Explorar</h2>
+        <ul>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#destacados">Libros destacados</a></li>
+          <li><a href="#novedades">Novedades</a></li>
+          <li><a href="../dashboard/index.html">Panel administrativo</a></li>
+        </ul>
+      </nav>
+
+      <div class="pie__enlaces">
+        <h2 class="pie__titulo">Redes sociales</h2>
+        <ul class="pie__redes">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="pie__legal">© 2026 BookHub · Prototipo académico · Juan Polanco · CampusLands</p>
+  </footer>
+
+  <script src="../compartido/menu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
